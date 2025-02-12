@@ -1,2 +1,2 @@
 # Monopoly3D
- Abschlussprojekt Informatik
+Abschlussprojekt Informatik
