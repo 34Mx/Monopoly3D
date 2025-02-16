@@ -4,32 +4,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#eaeaea"
+    android:background="#C70000"
+    android:fitsSystemWindows="false"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#C70000"
         android:fontFamily="@font/copperplategothic_bold"
-        android:padding="20dp"
         android:text="@string/app_name"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="60sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button2"
+    <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Neues Spiel"
-        android:background="@color/black"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="cursive"
+        android:text="Hybrid"
+        android:textColor="#eaeaea"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:maxWidth="400sp"
+        android:text="Version 1.0.0 - 2025/02/16\n(c) Samuel Schubert, Simon Skrodolies,\nDesign: Bianca Müller, Emma Franz, Finja Rameil,\nMarla Steinhoff, Zoe Mack"
+        android:textAlignment="center"
+        android:textColor="#eaeaea"
+        android:textSize="12sp"
+        android:fontFamily="monospace"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
