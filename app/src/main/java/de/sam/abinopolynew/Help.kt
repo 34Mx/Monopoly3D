@@ -1,6 +1,7 @@
-package de.sam.abinopolynew.func
+package de.sam.abinopolynew
 
 import android.os.Bundle
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
