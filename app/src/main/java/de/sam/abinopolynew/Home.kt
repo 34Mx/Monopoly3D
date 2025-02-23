@@ -11,7 +11,13 @@ class Home : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         hideSystemUI(window)
+
+        val newGameButton: Button = findViewById(R.id.newGameButton)
         val helpButton: Button = findViewById(R.id.button2)
+
+        newGameButton.setOnClickListener {
+            startActivity(Intent(this, NewGame::class.java))
+        }
 
         helpButton.setOnClickListener {
             startActivity(Intent(this, Help::class.java))
