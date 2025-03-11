@@ -68,7 +68,7 @@
         android:fontFamily="@font/delicious_handrawn"
         android:rotation="3"
         android:text="Bereit? -> Nach rechts ziehen!"
-        android:textColor="@color/pink"
+        android:textColor="@color/gold"
         android:textFontWeight="600"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/sliderButton"

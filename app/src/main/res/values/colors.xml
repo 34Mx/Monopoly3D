@@ -4,6 +4,15 @@
     <color name="white">#eaeaea</color>
     <color name="red">#C70000</color>
     <color name="green">#8FBC72</color>
+    <color name="gold">#d4af37</color>
     <color name="lightGreen">#BFDBAE</color>
     <color name="pink">#D7BAAA</color>
+    <color name="sub_lightBlue">#6495cd</color>
+    <color name="sub_darkBlue">#2c3787</color>
+    <color name="sub_purple">#802b88</color>
+    <color name="sub_green">#2bb04a</color>
+    <color name="sub_yellow">#f6d409</color>
+    <color name="sub_red">#f44246</color>
+    <color name="sub_orange">#ed7726</color>
+    <color name="sub_pink">#d1137f</color>
 </resources>

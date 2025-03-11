@@ -53,7 +53,7 @@ class NewGame : AppCompatActivity() {
                     val threshold = (it.max * 0.9).toInt()
 
                     if (it.progress >= threshold) {
-                        val intent = Intent(this@NewGame, Home::class.java)
+                        val intent = Intent(this@NewGame, Game::class.java)
                         startActivity(intent)
                     }
 
