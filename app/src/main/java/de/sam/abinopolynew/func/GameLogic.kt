@@ -8,7 +8,7 @@ data class FieldData(val time: Int, val rent: Int, val rentTotal: Int, val color
 @Serializable
 data class Field(val id: Int, val title: String, val description: String, val type: Int, val fieldData: FieldData? = null)
 
-class Player(val name: String) {
+class Player() {
     var position: Int = 0
     var balance: Int = 1500
 
@@ -60,10 +60,10 @@ class Board {
                 {"id": 8, "title": "Musik", "description": "", "type": 6, "fieldData":  {"time": 100, "rent":  15, "rentTotal":  30, "color":  "sub_lightBlue"}},
                 {"id": 9, "title": "Sport", "description": "", "type": 6, "fieldData":  {"time": 120, "rent":  20, "rentTotal":  40, "color":  "sub_lightBlue"}},
                 {"id": 10, "title": "Pausenhof", "description": "", "type": 0},
-                {"id": 11, "title": "Religion", "description": "", "type": 6, "fieldData":  {"time": 140, "rent":  25, "rentTotal":  50, "color":  "sub_purple"}},
+                {"id": 11, "title": "Religion", "description": "", "type": 6, "fieldData":  {"time": 140, "rent":  25, "rentTotal":  50, "color":  "sub_pink"}},
                 {"id": 12, "title": "Nachhilfe-Institut", "description": "", "type": 5},
-                {"id": 13, "title": "Philosophie", "description": "", "type": 6, "fieldData":  {"time": 140, "rent":  25, "rentTotal":  50, "color":  "sub_purple"}},
-                {"id": 14, "title": "Ethik", "description": "", "type": 6, "fieldData":  {"time": 160, "rent":  30, "rentTotal":  60, "color":  "sub_purple"}},
+                {"id": 13, "title": "Philosophie", "description": "", "type": 6, "fieldData":  {"time": 140, "rent":  25, "rentTotal":  50, "color":  "sub_pink"}},
+                {"id": 14, "title": "Ethik", "description": "", "type": 6, "fieldData":  {"time": 160, "rent":  30, "rentTotal":  60, "color":  "sub_pink"}},
                 {"id": 15, "title": "Abitur II", "description": "", "type": 1},
                 {"id": 16, "title": "Informatik", "description": "", "type": 6, "fieldData":  {"time": 180, "rent":  30, "rentTotal":  60, "color":  "sub_orange"}},
                 {"id": 17, "title": "Gemeinschaftsfeld", "description": "", "type": 2},
@@ -86,9 +86,9 @@ class Board {
                 {"id": 34, "title": "Physik", "description": "", "type": 6, "fieldData":  {"time": 320, "rent": 70, "rentTotal": 140, "color":  "sub_green"}},
                 {"id": 35, "title": "Abitur IV", "description": "", "type": 1},
                 {"id": 36, "title": "Ereignisfeld", "description": "", "type": 3},
-                {"id": 37, "title": "Latein", "description": "", "type": 6, "fieldData":  {"time": 60, "rent": 10, "rentTotal": 20, "color":  "sub_pink"}},
+                {"id": 37, "title": "Latein", "description": "", "type": 6, "fieldData":  {"time": 60, "rent": 10, "rentTotal": 20, "color":  "sub_purple"}},
                 {"id": 38, "title": "Kopiergeld", "description": "", "type": 4},
-                {"id": 39, "title": "Chinesisch", "description": "", "type": 6, "fieldData":  {"time": 80, "rent": 10, "rentTotal": 20, "color":  "sub_pink"}}
+                {"id": 39, "title": "Chinesisch", "description": "", "type": 6, "fieldData":  {"time": 80, "rent": 10, "rentTotal": 20, "color":  "sub_purple"}}
             ]
         """
         fields = Json.decodeFromString(json)

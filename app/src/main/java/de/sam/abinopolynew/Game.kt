@@ -45,7 +45,7 @@ class Game : AppCompatActivity() {
 
 
         game = Board()
-        var testPlayer: Player = Player("Samuel")
+        var testPlayer: Player = Player()
         game.addPlayer(testPlayer)
 
         rollButton.setOnClickListener {
