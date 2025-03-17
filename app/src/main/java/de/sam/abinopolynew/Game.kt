@@ -57,13 +57,13 @@ class Game : AppCompatActivity() {
                 Log.d("34Mx.GAME", "Roll: $diceSum")
                 handler.postDelayed({
                     game.movePlayer(testPlayer, diceSum)
-                    showFieldMenu(testPlayer.position, diceSum)
+                    game.getFieldInformation(testPlayer.position)?.fieldData?.let { it1 -> showFieldMenu(testPlayer.position, diceSum, it1.time) }
                 }, 500)
             }
         }
     }
 
-    fun showFieldMenu(id: Int, diceSum: Int) {
+    fun showFieldMenu(id: Int, diceSum: Int, time: Int) {
         gameDisplay.setText("Gewürfelt: $diceSum!")
         val context: Context = this
         val id: Int = context.resources.getIdentifier("sub_$id", "drawable", context.packageName)
@@ -71,7 +71,9 @@ class Game : AppCompatActivity() {
         dices.visibility = View.INVISIBLE
         cardView.visibility = View.VISIBLE
         fieldActionButton.visibility = View.VISIBLE
+        fieldActionButton.setText("$time$");
     }
+
 
     fun hideFieldMenu() {
         dices.visibility = View.VISIBLE
