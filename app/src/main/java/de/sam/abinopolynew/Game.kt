@@ -12,6 +12,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import de.sam.abinopolynew.func.Board
+import de.sam.abinopolynew.func.Field
 import de.sam.abinopolynew.func.Player
 import de.sam.abinopolynew.func.hideSystemUI
 
@@ -57,7 +58,17 @@ class Game : AppCompatActivity() {
                 Log.d("34Mx.GAME", "Roll: $diceSum")
                 handler.postDelayed({
                     game.movePlayer(testPlayer, diceSum)
-                    game.getFieldInformation(testPlayer.position)?.fieldData?.let { it1 -> showFieldMenu(testPlayer.position, diceSum, it1.time) }
+                    val fieldInfo: Field? = game.getFieldInformation(testPlayer.position)
+                    if (fieldInfo != null) {
+                        val time: Int? = fieldInfo.fieldData?.time
+                        if (time != null) {
+                            // Fach
+                            showFieldMenu(testPlayer.position, diceSum, time)
+                        }
+                        else {
+                            // Ereignisfeld, ...
+                        }
+                    }
                 }, 500)
             }
         }
