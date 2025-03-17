@@ -41,7 +41,7 @@
         android:layout_marginBottom="36dp"
         android:fontFamily="monospace"
         android:maxWidth="400sp"
-        android:text="Version 1.0.0 - 2025/02/16\n(c) Samuel Schubert, Simon Skrodolies,\nDesign: Bianca Müller, Emma Franz, Finja Rameil,\nMarla Steinhoff, Zoe Mack"
+        android:text="Version 1.0.1 - 2025/03/13\n(c) Samuel Schubert, Simon Skrodolies,\nDesign: Bianca Müller, Emma Franz, Finja Rameil,\nMarla Steinhoff, Zoe Mack"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="12sp"

@@ -10,6 +10,26 @@ data class Field(val id: Int, val title: String, val description: String, val ty
 
 class Player(val name: String) {
     var position: Int = 0
+    var balance: Int = 1500
+
+    fun deposit(amount: Int) {
+        if (amount > 0) {
+            balance += amount
+        }
+    }
+
+    fun withdraw(amount: Int): Boolean {
+        return if (amount in 1..balance) {
+            balance -= amount
+            true
+        } else {
+            false
+        }
+    }
+
+    fun getMoney(): Int {
+        return balance
+    }
 }
 
 class Board {
@@ -92,7 +112,9 @@ class Board {
         return fields.find { it.id == position }
     }
 
-    fun roll(): Int {
-        return (2..12).random();
+    fun roll(): Array<Int> {
+        val dice1 = (1..6).random()
+        val dice2 = (1..6).random()
+        return arrayOf(dice1, dice2)
     }
 }
