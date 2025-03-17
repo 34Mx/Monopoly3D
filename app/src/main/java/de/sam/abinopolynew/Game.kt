@@ -61,12 +61,17 @@ class Game : AppCompatActivity() {
                     val fieldInfo: Field? = game.getFieldInformation(testPlayer.position)
                     if (fieldInfo != null) {
                         val time: Int? = fieldInfo.fieldData?.time
+                        when (fieldInfo.type){
+                            6->showFieldActionButton("${time}$")
+                        }
+
                         if (time != null) {
                             // Fach
                             showFieldMenu(testPlayer.position, diceSum, time)
                         }
                         else {
-                            // Ereignisfeld, ...
+                            // Ereignisfeld
+
                         }
                     }
                 }, 500)
@@ -81,8 +86,7 @@ class Game : AppCompatActivity() {
         cardView.setImageResource(id)
         dices.visibility = View.INVISIBLE
         cardView.visibility = View.VISIBLE
-        fieldActionButton.visibility = View.VISIBLE
-        fieldActionButton.setText("$time$");
+
     }
 
 
@@ -137,6 +141,7 @@ class Game : AppCompatActivity() {
 //    }
 
     fun showFieldActionButton(text: String) {
-
+        fieldActionButton.visibility = View.VISIBLE
+        fieldActionButton.setText("$text");
     }
 }
