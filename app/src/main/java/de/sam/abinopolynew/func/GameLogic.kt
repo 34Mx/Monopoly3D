@@ -8,6 +8,11 @@ data class FieldData(val time: Int, val rent: Int, val rentTotal: Int, val color
 @Serializable
 data class Field(val id: Int, val title: String, val description: String, val type: Int, val fieldData: FieldData? = null)
 
+data class CommunityTask(
+    val text: String,
+    val time: Int
+)
+
 class Player() {
     var position: Int = 0
     var balance: Int = 1500
@@ -39,7 +44,10 @@ class Board {
     init {
         /*
             Types:
-                0 -> Eckpunkte
+                10 -> Eckpunkt: Start
+                11 -> Eckpunkt: Pausenhof
+                12 -> Eckpunkt: Mensa
+                13 -> Eckpunkt: Nachsitzen
                 1 -> Prüfung
                 2 -> Gemeinschaftsfeld
                 3 -> Ereignisfeld
@@ -113,8 +121,19 @@ class Board {
     }
 
     fun roll(): Array<Int> {
-        val dice1 = (1..6).random()
-        val dice2 = (1..6).random()
-        return arrayOf(dice1, dice2)
+//        val dice1 = (1..6).random()
+//        val dice2 = (1..6).random()
+//        return arrayOf(dice1, dice2)
+        return arrayOf(1,1)
+    }
+
+    fun randomCommunityTask(): CommunityTask {
+        val tasks = listOf(
+            CommunityTask("Du musst die Renovierung der Schule finanziell unterstützen.\nGib 100min Lernzeit ab.", -100),
+            CommunityTask("Du hast aus Versehen den Feueralarm ausgelöst.\nGib als Strafe 60min Lernzeit ab.", -60),
+            CommunityTask("Da du dich für ein MINT-EC Camp angemeldet hast, erhälst du als Belohnung 70min Lernzeit!", 70),
+            CommunityTask("Du hast das Kopiergeld nicht bezahlt.\nMache 5 Liegestützen", 0)
+        )
+        return tasks[(0..<tasks.size).random()]
     }
 }

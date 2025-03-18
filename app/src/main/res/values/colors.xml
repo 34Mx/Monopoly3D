@@ -15,6 +15,7 @@
     <color name="sub_red">#f44246</color>
     <color name="sub_orange">#ed7726</color>
     <color name="sub_pink">#d1137f</color>
+    <color name="community">#eea5da</color>
 
     <color name="colorPrimary">@color/gold</color>
     <color name="colorPrimaryDark">@color/black</color>

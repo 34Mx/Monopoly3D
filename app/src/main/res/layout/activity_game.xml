@@ -113,13 +113,57 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
         android:fontFamily="@font/copperplategothic_bold"
-        android:text="312"
+        android:text="1500"
         android:textColor="@color/gold"
         android:textFontWeight="800"
         android:textSize="24dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/commEventMenu"
+        android:layout_width="300dp"
+        android:layout_height="400dp"
+        android:background="@color/community"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <TextView
+            android:id="@+id/commEventTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/copperplategothic_bold"
+            android:text="Gemeinschaftsfeld"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textFontWeight="800"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/commEventContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:layout_marginEnd="36dp"
+            android:fontFamily="@font/fredoka"
+            android:textSize="18sp"
+            android:text="Da du dich für ein MINT-EC Camp angemeldet hast, erhälst du als Belohnung 70min Lernzeit!"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
