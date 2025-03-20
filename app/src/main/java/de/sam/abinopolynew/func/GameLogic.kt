@@ -13,6 +13,12 @@ data class CommunityTask(
     val time: Int
 )
 
+data class EventTask(
+    val text: String,
+    val time: Int? = null,
+    val newPos: Int? = null
+)
+
 class Player() {
     var position: Int = 0
     var balance: Int = 1500
@@ -57,7 +63,7 @@ class Board {
          */
         val json = """
             [
-                {"id": 0, "title": "Start", "description": "Startfeld", "type": 0},
+                {"id": 0, "title": "Start", "description": "Startfeld", "type": 10},
                 {"id": 1, "title": "Mathe", "description": "", "type": 6, "fieldData":  {"time": 400, "rent":  100, "rentTotal":  200, "color":  "sub_darkBlue"}},
                 {"id": 2, "title": "Gemeinschaftsfeld", "description": "", "type": 2},
                 {"id": 3, "title": "Deutsch", "description": "", "type": 6, "fieldData":  {"time": 350, "rent":  80, "rentTotal":  160, "color":  "sub_darkBlue"}},
@@ -67,7 +73,7 @@ class Board {
                 {"id": 7, "title": "Ereignisfeld", "description": "", "type": 3},
                 {"id": 8, "title": "Musik", "description": "", "type": 6, "fieldData":  {"time": 100, "rent":  15, "rentTotal":  30, "color":  "sub_lightBlue"}},
                 {"id": 9, "title": "Sport", "description": "", "type": 6, "fieldData":  {"time": 120, "rent":  20, "rentTotal":  40, "color":  "sub_lightBlue"}},
-                {"id": 10, "title": "Pausenhof", "description": "", "type": 0},
+                {"id": 10, "title": "Pausenhof", "description": "", "type": 11},
                 {"id": 11, "title": "Religion", "description": "", "type": 6, "fieldData":  {"time": 140, "rent":  25, "rentTotal":  50, "color":  "sub_pink"}},
                 {"id": 12, "title": "Nachhilfe-Institut", "description": "", "type": 5},
                 {"id": 13, "title": "Philosophie", "description": "", "type": 6, "fieldData":  {"time": 140, "rent":  25, "rentTotal":  50, "color":  "sub_pink"}},
@@ -77,7 +83,7 @@ class Board {
                 {"id": 17, "title": "Gemeinschaftsfeld", "description": "", "type": 2},
                 {"id": 18, "title": "Politik", "description": "", "type": 6, "fieldData":  {"time": 180, "rent":  30, "rentTotal":  60, "color":  "sub_orange"}},
                 {"id": 19, "title": "Geschichte", "description": "", "type": 6, "fieldData":  {"time": 200, "rent":  40, "rentTotal":  80, "color":  "sub_orange"}},
-                {"id": 20, "title": "Mensa", "description": "", "type": 0},
+                {"id": 20, "title": "Mensa", "description": "", "type": 12},
                 {"id": 21, "title": "Pädagogik", "description": "", "type": 6, "fieldData":  {"time": 220, "rent": 45, "rentTotal": 90, "color":  "sub_red"}},
                 {"id": 22, "title": "Ereignisfeld", "description": "", "type": 3},
                 {"id": 23, "title": "Erdkunde", "description": "", "type": 6, "fieldData":  {"time": 220, "rent": 45, "rentTotal": 90, "color":  "sub_red"}},
@@ -87,7 +93,7 @@ class Board {
                 {"id": 27, "title": "Spanisch", "description": "", "type": 6, "fieldData":  {"time": 240, "rent": 55, "rentTotal": 110, "color":  "sub_yellow"}},
                 {"id": 28, "title": "Gemeinschaftsfeld", "description": "", "type": 2},
                 {"id": 29, "title": "Französisch", "description": "", "type": 6, "fieldData":  {"time": 260, "rent": 60, "rentTotal": 120, "color":  "sub_yellow"}},
-                {"id": 30, "title": "Nachsitzen", "description": "", "type": 0},
+                {"id": 30, "title": "Nachsitzen", "description": "", "type": 13},
                 {"id": 31, "title": "Chemie", "description": "", "type": 6, "fieldData":  {"time": 300, "rent": 65, "rentTotal": 130, "color":  "sub_green"}},
                 {"id": 32, "title": "Biologie", "description": "", "type": 6, "fieldData":  {"time": 300, "rent": 65, "rentTotal": 130, "color":  "sub_green"}},
                 {"id": 33, "title": "Gemeinschaftsfeld", "description": "", "type": 2},
@@ -134,6 +140,22 @@ class Board {
             CommunityTask("Da du dich für ein MINT-EC Camp angemeldet hast, erhälst du als Belohnung 70min Lernzeit!", 70),
             CommunityTask("Du hast das Kopiergeld nicht bezahlt.\nMache 5 Liegestützen", 0)
         )
-        return tasks[(0..<tasks.size).random()]
+        return tasks[(tasks.indices).random()]
+    }
+
+    fun randomEventTask(): EventTask {
+        val tasks = listOf(
+            EventTask("Gehe zurück auf Los. Erhalte 200min Lernzeit.", 200, 0),
+            EventTask("Du hast eine 6 in deinem letzten Fach erhalten. Gib 60min Lernzeit ab!", -60),
+            EventTask("Du hast deine Hausaufgaben vergessen. Gib als Strafe 100min Lernzeit ab!", -100),
+            EventTask("Du hast in deinem letzten Fach eine Zusatzaufgabe erledigt. Erhalte als Belohnung 100min Lernzeit!", 100),
+            EventTask("Du gehst nach dem Lernen zur Erholung in die Mensa. Erhalte 20min Lernzeit!", 20, 20),
+            EventTask("Du hast zu lange Pause gemacht und musst aussetzen. Gehe auf den Pausenhof.", newPos=10),
+            EventTask("Du hast eine Freistunde. Begib dich auf den Pausenhof.", newPos=10),
+            EventTask("Du hast Sport geschwänzt. Mache 10 Hampelmänner!"),
+            EventTask("Um dich zu verbessern, begibst du dich zur Nachhilfe. Gib 90min Lernzeit ab.", -90, 12),
+        )
+
+        return tasks[(tasks.indices).random()]
     }
 }

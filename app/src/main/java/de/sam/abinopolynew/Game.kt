@@ -15,6 +15,7 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.constraintlayout.widget.ConstraintLayout
 import de.sam.abinopolynew.func.Board
 import de.sam.abinopolynew.func.CommunityTask
+import de.sam.abinopolynew.func.EventTask
 import de.sam.abinopolynew.func.Field
 import de.sam.abinopolynew.func.Player
 import de.sam.abinopolynew.func.hideSystemUI
@@ -185,6 +186,15 @@ class Game : AppCompatActivity() {
         showCommEventMenu("Gemeinschaftsfeld", message, "#eea5da")
         if (time < 0) currentPlayer.withdraw(time.absoluteValue)
         else currentPlayer.deposit(time.absoluteValue)
+    }
+
+    private fun handleEventTasks() {
+        val randomTask: EventTask = game.randomEventTask()
+        val message = randomTask.text
+        val time = randomTask.time
+        val newPos = randomTask.newPos
+
+        showCommEventMenu("Ereignisfeld", message, "#")
     }
 
     private fun showCommEventMenu(title: String, content: String, color: String) {
