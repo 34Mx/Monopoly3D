@@ -4,9 +4,9 @@ import kotlinx.serialization.*
 import kotlinx.serialization.json.*
 
 @Serializable
-data class FieldData(val time: Int, val rent: Int, val rentTotal: Int, val color: String)
+data class FieldData(val time: Int, val rent: Int, val rentTotal: Int, val group: String)
 @Serializable
-data class Field(val id: Int, val title: String, val description: String, val type: Int, val fieldData: FieldData? = null)
+data class Field(val id: Int, val title: String, val description: String, val type: Int, val fieldData: FieldData? = null, var ownedBy: Int? = null)
 
 data class CommunityTask(
     val text: String,
@@ -20,8 +20,10 @@ data class EventTask(
 )
 
 class Player() {
+    var id: Int = -1
     var position: Int = 0
-    var balance: Int = 1500
+    var balance: Int = 100
+    var fieldsOwned: ArrayList<Int> = arrayListOf()
 
     fun deposit(amount: Int) {
         if (amount > 0) {
@@ -40,6 +42,14 @@ class Player() {
 
     fun getMoney(): Int {
         return balance
+    }
+
+    fun addOwnedField(id: Int) {
+        fieldsOwned.add(id)
+    }
+
+    fun getOwnedFields(): ArrayList<Int> {
+        return fieldsOwned
     }
 }
 
@@ -118,6 +128,15 @@ class Board {
         player.position = newPosition
     }
 
+    fun setPlayerPosition(player: Player, position: Int) {
+        if (position in 1..fields.size) {
+            players[player] = position
+            player.position = position
+        } else {
+            throw IllegalArgumentException("Position out of bounds")
+        }
+    }
+
     fun getPlayerPosition(player: Player): Int {
         return players[player] ?: error("Spieler nicht gefunden")
     }
@@ -127,10 +146,9 @@ class Board {
     }
 
     fun roll(): Array<Int> {
-//        val dice1 = (1..6).random()
-//        val dice2 = (1..6).random()
-//        return arrayOf(dice1, dice2)
-        return arrayOf(1,1)
+        val dice1 = (1..6).random()
+        val dice2 = (1..6).random()
+        return arrayOf(dice1, dice2)
     }
 
     fun randomCommunityTask(): CommunityTask {

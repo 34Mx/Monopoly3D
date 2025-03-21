@@ -159,7 +159,7 @@ class Game : AppCompatActivity() {
             2, 3 -> buttonText = "Karte ziehen"
             4 -> currentPlayer.withdraw(50) // TODO: Insert correct value
             5 -> currentPlayer.withdraw(50)
-            6 -> buttonText = "${time}$"
+            6 -> { if(field.fieldData?.time != null && field.fieldData.time <= currentPlayer.getMoney() && field.ownedBy == null) buttonText = "${time}$" }
             else -> {}
         }
 
@@ -171,8 +171,11 @@ class Game : AppCompatActivity() {
         if (field == null) return
 
         val type: Int = field.type
+        val time = field.fieldData?.time ?: 0
         when (type) {
             2 -> handleCommunityTasks()
+            3 -> handleEventTasks()
+            6 -> { if (currentPlayer.withdraw(time)) { currentPlayer.addOwnedField(field.id); field.ownedBy = currentPlayer.id } }
         }
 
         updateMoneyDisplay()
@@ -194,7 +197,14 @@ class Game : AppCompatActivity() {
         val time = randomTask.time
         val newPos = randomTask.newPos
 
-        showCommEventMenu("Ereignisfeld", message, "#")
+        Log.d("34Mx.GAME", message)
+
+        showCommEventMenu("Ereignisfeld", message, "#8cc2e6")
+        if (time != null) {
+            if (time < 0) currentPlayer.withdraw(time.absoluteValue)
+            else currentPlayer.deposit(time.absoluteValue)
+        }
+        if (newPos != null) game.setPlayerPosition(currentPlayer, newPos)
     }
 
     private fun showCommEventMenu(title: String, content: String, color: String) {
