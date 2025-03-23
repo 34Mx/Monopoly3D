@@ -1,5 +1,6 @@
 package de.sam.abinopolynew
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
@@ -14,6 +15,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import de.sam.abinopolynew.func.hideSystemUI
+import de.sam.abinopolynew.func.vibrateDuhDuh
 
 class NewGame : AppCompatActivity() {
 
@@ -30,7 +32,7 @@ class NewGame : AppCompatActivity() {
 
         val numberPicker: NumberPicker = findViewById(R.id.numberPicker)
         numberPicker.minValue = 2
-        numberPicker.maxValue = 5
+        numberPicker.maxValue = 4
         numberPicker.value = 2
 
         numberPicker.setOnValueChangedListener {_, _, newVal ->
@@ -53,8 +55,12 @@ class NewGame : AppCompatActivity() {
                     val threshold = (it.max * 0.9).toInt()
 
                     if (it.progress >= threshold) {
+                        vibrateDuhDuh(this@NewGame)
                         val intent = Intent(this@NewGame, Game::class.java)
+                        intent.putExtra("playerCount", numberPicker.value)
+//                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                         startActivity(intent)
+                        finish()
                     }
 
                     it.progress = 0

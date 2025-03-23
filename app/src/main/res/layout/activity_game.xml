@@ -85,14 +85,14 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_weight="1"
-            android:src="@drawable/dice_4" />
+            android:src="@drawable/dice_0" />
 
         <ImageView
             android:id="@+id/dice2"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_weight="1"
-            android:src="@drawable/dice_2" />
+            android:src="@drawable/dice_0" />
     </LinearLayout>
 
     <ImageView
@@ -106,6 +106,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/money" />
+
+    <TextView
+        android:id="@+id/abiBalance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:text="Abi: 0/4\n()"
+        android:fontFamily="@font/fredoka"
+        android:textColor="@color/gold"
+        android:textSize="18sp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@+id/moneyDisplay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/moneyDisplay" />
 
     <TextView
         android:id="@+id/moneyDisplay"
@@ -163,6 +177,180 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/paidButton"
+        android:layout_width="66dp"
+        android:layout_height="66dp"
+        android:layout_marginEnd="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/paid" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/paidDisplay"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/background_gold_border"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/rollButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/gameDisplay">
+
+        <TextView
+            android:id="@+id/paidViewHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/copperplategothic_bold"
+            android:text="Gekauft: 12"
+            android:textAlignment="center"
+            android:textColor="@color/gold"
+            android:textSize="36sp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/paidCardView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/paidCardView"
+            android:layout_width="260dp"
+            android:layout_height="300dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/paidArrowLeft"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:layout_constraintBottom_toBottomOf="@+id/paidCardView"
+            app:layout_constraintEnd_toStartOf="@+id/paidCardView"
+            app:layout_constraintTop_toTopOf="@+id/paidCardView"
+            app:srcCompat="@drawable/baseline_chevron_left_24" />
+
+        <ImageView
+            android:id="@+id/paidArrowRight"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/baseline_chevron_right_24"
+            app:layout_constraintBottom_toBottomOf="@+id/paidCardView"
+            app:layout_constraintStart_toEndOf="@+id/paidCardView"
+            app:layout_constraintTop_toTopOf="@+id/paidCardView" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/moneyBalance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:fontFamily="@font/copperplategothic_bold"
+        android:text="+80"
+        android:textColor="@color/gold"
+        app:layout_constraintStart_toEndOf="@+id/moneyDisplay"
+        app:layout_constraintTop_toTopOf="@+id/moneyDisplay" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/examMenu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/goldenBlack"
+        android:elevation="4dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/abiHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="42dp"
+            android:fontFamily="@font/copperplategothic_bold"
+            android:text="Abitur I"
+            android:textColor="@color/gold"
+            android:textSize="42sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/abiQuestion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/fredoka"
+            android:text="Welche Organisation überwacht den internationalen Handel?"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textFontWeight="800"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/tableLayout1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TableLayout
+            android:id="@+id/tableLayout1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/abiBtn1"
+                    android:layout_width="200dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/gold"
+                    android:text="a) Das ist Antwort Nummer 1" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/abiBtn2"
+                    android:layout_width="200dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/gold"
+                    android:text="b) Das ist Antwort Nummer 2" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/abiBtn3"
+                    android:layout_width="200dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/gold"
+                    android:text="c) Das ist Antwort Nummer 3" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/abiBtn4"
+                    android:layout_width="200dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/gold"
+                    android:text="d) Das ist Antwort Nummer 4" />
+            </TableRow>
+
+        </TableLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
