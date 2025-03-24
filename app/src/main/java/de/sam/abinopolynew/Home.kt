@@ -23,7 +23,8 @@ class Home : AppCompatActivity() {
         }
 
         helpButton.setOnClickListener {
-            startActivity(Intent(this, Help::class.java))
+//            startActivity(Intent(this, Help::class.java))
+            finish()
         }
     }
 }
